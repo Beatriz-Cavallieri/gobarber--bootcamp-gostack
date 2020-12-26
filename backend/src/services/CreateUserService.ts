@@ -1,5 +1,6 @@
 import { hash } from 'bcryptjs';
 import { getRepository } from 'typeorm';
+import { UserMap } from '../mappers/UserMap';
 import User from '../models/Users';
 
 interface Request {
@@ -9,7 +10,7 @@ interface Request {
 }
 
 class CreateUserService {
-    public async execute({ name, email, password }: Request): Promise<User> {
+    public async execute({ name, email, password }: Request): Promise<UserMap> {
         const usersRepository = getRepository(User);
 
         const checkUserExists = await usersRepository.findOne({
@@ -26,9 +27,9 @@ class CreateUserService {
             email,
             password: hashedPassword,
         });
-        await usersRepository.save(user);
+        const dto: UserMap = await usersRepository.save(user);
 
-        return user;
+        return dto;
     }
 }
 
