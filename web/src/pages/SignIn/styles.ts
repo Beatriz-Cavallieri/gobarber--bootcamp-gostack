@@ -28,59 +28,21 @@ export const Content = styled.div`
       margin-bottom: 24px;
     }
 
-    input,
-    button {
-      border-radius: 10px;
-      padding: 16px;
-      display: block;
-      width: 100%;
-    }
-
-    input {
-      // guarda espaço pra borda vermelha de erro
-      border: 2px solid transparent;
-
-      background-color: #232129;
+    a {
+      text-decoration: none;
       color: #f4ede8;
-      & + input {
-        margin-top: 8px;
-      }
-      &::placeholder {
-        color: white;
-      }
-    }
+      transition: color 0.2s;
 
-    button {
+      display: block;
       margin-top: 24px;
-      height: 56px;
-      border: none;
-
-      font-weight: 500;
-
-      background-color: #ff9000;
-      transition: background-color 0.2s;
-      color: #312e38;
 
       &:hover {
-        background-color: ${shade(0.2, "#ff9000")};
+        color: ${shade(0.2, "#f4ede8")};
       }
     }
   }
-
-  a {
-    text-decoration: none;
-    color: #f4ede8;
-    transition: color 0.2s;
-
-    display: block;
-    margin-top: 24px;
-
-    &:hover {
-      color: ${shade(0.2, "#f4ede8")};
-    }
-  }
-
   > a {
+    text-decoration: none;
     color: #ff9000;
     transition: color 0.2s;
     display: flex;
