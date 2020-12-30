@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
   body, input, button {
     font-family: 'Roboto Slab', serif;
     font-size: 16px;
+<<<<<<< HEAD
   }
 
   h1, h2, h3, h4, h5, h6, strong {
@@ -29,3 +30,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
+=======
+    font-weight: normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 , strong {
+    font-weight: 500;
+    }
+`;
+>>>>>>> bfd96da22804443d34b982728d7df8b9dfbd6699
