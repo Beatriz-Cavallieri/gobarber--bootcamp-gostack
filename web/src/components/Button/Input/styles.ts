@@ -1,9 +1,10 @@
-import { toColorString } from "polished";
 import styled, { css } from "styled-components";
+import Tooltip from "../../Tooltip";
 
 interface ContainerProps {
   isFocused: boolean;
   isFilled: boolean;
+  hasError: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -42,11 +43,29 @@ export const Container = styled.div<ContainerProps>`
         color: #ff9000;
       }
     `}
-    ${(props) =>
+  ${(props) =>
     props.isFilled &&
     css`
       svg {
         color: #ff9000;
       }
     `}
+
+    ${(props) =>
+    (props.hasError && !props.isFocused) &&
+    css`
+      color: #c53030;
+      border-color: #c53030;
+      svg {
+        color: #c53030;
+      }
+    `}
+`;
+
+export const Error = styled(Tooltip)`
+  height: 20px; //tamanho do ícone
+  margin-left: 16px;
+  svg {
+    margin: 0;
+  }
 `;
