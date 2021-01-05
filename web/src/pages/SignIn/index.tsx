@@ -6,6 +6,7 @@ import Input from "../../components/Button/Input";
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
 import * as Yup from "yup";
+// validação
 import getValidationErrors from "../../utils/getValidationErrors";
 import { useAuth } from "../../context/AuthContext";
 import { Background, Container, Content } from "./styles";
