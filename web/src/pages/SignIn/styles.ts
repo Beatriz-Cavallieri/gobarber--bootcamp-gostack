@@ -64,3 +64,7 @@ export const Background = styled.div`
   // cobrir completamente, sem espaços vazios
   background-size: cover;
 `;
+
+export const AnimationCOntainer = styled.div`
+
+`;
