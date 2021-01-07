@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Background, Container, Content } from "./styles";
 import logoImg from "../../assets/images/Logo.svg";
 // ícones svg
@@ -18,7 +19,6 @@ const SignUp: React.FC = () => {
 
   const handleSubmit = useCallback(async (data: object) => {
     try {
-
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
@@ -54,9 +54,9 @@ const SignUp: React.FC = () => {
           />
           <Button type="submit">Cadastrar</Button>
         </Form>
-        <a href="bla">
+        <Link to="/">
           <FiArrowLeft /> Voltar para o login
-        </a>
+        </Link>
       </Content>
     </Container>
   );

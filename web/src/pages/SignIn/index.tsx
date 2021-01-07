@@ -1,16 +1,20 @@
 import React, { useCallback, useRef } from "react";
-import logoImg from "../../assets/images/Logo.svg";
-import { FiLogIn, FiMail, FiLock } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import Input from "../../components/Button/Input";
+// ícones e imagens
+import logoImg from "../../assets/images/Logo.svg";
+import { FiLogIn, FiMail, FiLock } from "react-icons/fi";
+// formulário
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
-import * as Yup from "yup";
 // validação
+import * as Yup from "yup";
 import getValidationErrors from "../../utils/getValidationErrors";
 import { useAuth } from "../../hooks/auth";
-import { Background, Container, Content } from "./styles";
 import { useToast } from "../../hooks/toast";
+// estilo
+import { Background, Container, Content } from "./styles";
 
 interface SignInFormData {
   email: string;
@@ -71,9 +75,9 @@ const SignIn: React.FC = () => {
           <Button type="submit">Entrar</Button>
           <a href="bla"> Esqueci minha senha</a>
         </Form>
-        <a href="bla">
+        <Link to="/signup">
           <FiLogIn /> Criar conta
-        </a>
+        </Link>
       </Content>
 
       <Background />
