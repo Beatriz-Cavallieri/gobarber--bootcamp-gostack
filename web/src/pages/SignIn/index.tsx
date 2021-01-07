@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Button from "../../components/Button";
 import Input from "../../components/Button/Input";
 // ícones e imagens
@@ -26,6 +26,7 @@ const SignIn: React.FC = () => {
 
   const { user, signIn } = useAuth();
   const { addToast } = useToast();
+  const history = useHistory();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -42,6 +43,8 @@ const SignIn: React.FC = () => {
         await schema.validate(data, { abortEarly: false });
 
         await signIn({ email: data.email, password: data.password });
+
+        history.push("/dashboard");
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
@@ -56,7 +59,7 @@ const SignIn: React.FC = () => {
         });
       }
     },
-    [signIn, addToast]
+    [signIn, addToast, history]
   );
 
   return (
